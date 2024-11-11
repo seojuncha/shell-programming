@@ -8,7 +8,7 @@
 ### script
 ***script*** is enclosed by single-quotes. *script* defines what have to do with a text.<br>
 Synopsis of script is below.<br>
-> [address]x[options]
+> [address]*X*[options]
 
 Take a quick look with a few examples. Note that the sample file is in the *samples* directory.
 ```shell
