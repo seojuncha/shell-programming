@@ -201,7 +201,7 @@ $ echo $SHELL
 ## Shell Profiles
 Let's begin with Shell. When starting a shell session, various configuration files are loaded. That configuration file is called a Shell profile.
 
-If the Shell is Bash,
+For example, if the Shell is Bash,
 - /etc/profile
 - /etc/profile.d/*.sh
 - ~/.bash_profile
@@ -212,13 +212,40 @@ If the Shell is Bash,
 The purpose of Shell profile is to load environment variables and run scripts for the session. Before we step forward, look around the Shell session.
 
 ## Shell Sessions
-There are two kinds of Shell sessions, ***Login Session*** and ***Non-Login Session***. What's difference between them? 
+There are two kinds of Shell sessions, ***Login Session*** and ***Non-Login Session***. What's difference between them? Let's talk about *session* first. The terminology, *session*, is commonly appeared in computer programming world. What is *session*?
+
+### Session
+1. *Session* is from connection between an user and a system or systems.
+2. *Session* is stateful.
+3. *Session* has time limit and scope.
+
+
 
 ### Login Shell Session
+```shell
+$ echo $0
+-bash         # start with '-'
+```
 
 ### Non-Login Shell Session
+```shell
+$ bash      # start a new shell session
+$ echo $0
+bash
+```
 
 ## Psuedo Temrminal Slave devices: PTS
+```shell
+$ who
+user   pts/0   2024-11-11 12:00 (192.168.0.4)
+```
+Imaagine two users are loged in via ssh. Then, the first user was starting new shell session.
+```shell
+$ ps -aux | grep "pts/" | grep -E -v "pts/[0-9]$" | grep -E -v "color|ps -aux"
+user1  ... pts/0 ... -bash
+user1  ... pts/0 ... bash
+user2  ... pts/1 ... -bash
+```
 
 ## (Option) Setup various shells on MacOS
 Use a package manager, brew, to install various shells on MacOS.
