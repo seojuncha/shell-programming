@@ -104,11 +104,11 @@ If netstat is not found, install the package, 'net-tools'
 $ sudo apt install net-tools
 ```
 
-6. Print resource usage
+6. Print resource usage[^1]
 ```shell
 $ top
 ```
-> Can use 'htop' also
+[^1]: You can use 'htop' also for more graphical printing. 'sudo apt install htop'
 
 ### Text Processing
 1. Count the number of words or lines
@@ -236,3 +236,4 @@ $ man ksh
 ## Resources
 - vim: https://vim.rtorr.com/
 - tmux: https://github.com/tmux/tmux/wiki
+
