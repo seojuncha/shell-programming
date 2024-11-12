@@ -52,7 +52,7 @@ Sample files provided from the awk library would be able to used in practice. Ho
 Are there a more effortless way to use those? Moreover, All sample files look similar, like a table data.
 
 ### Tabular Data
-***Tabular data*** is composed of a row and a column. This structure have been shown in Excel easily.
+***Tabular data*** is composed of rows(records) and columns(fields). This structure could be shown in Excel easily.
 Let's see a sample file, mail-list.
 ```shell
 $ cat /usr/share/doc/gawk/examples/data/mail-list
@@ -112,7 +112,7 @@ $ source ~/.bashrc
 $ awk '{print $0}' $SAMPLE
 mail-list contents...
 ```
-As the environment variable, SAMPLE, is writting in .bashrc profile, I can use it when I log in shell session again at now. 
+As the environment variable, SAMPLE, is written into .bashrc profile, I can use it when I log in shell session again at now. 
 
 ## Print Fields with Regular Expression
 I have been used input and output in the previous examples. Keep in mind that 'awk' is following 'pattern-action' structure per one line. Moreover, this rule can be applied multiple times. Let me show you an example.
