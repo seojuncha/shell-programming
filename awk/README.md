@@ -1,5 +1,5 @@
 # awk
-***awk*** is a programming language as well as a utility program. *awk* is data-driven language. You have to describe the data you want to work, then do action you want when awk find the data. For that reason, *awk* syntax makes sense. There is a pattern to find a matching line, and also actions what do you want. Until now, it may be similar with *sed*. However, *awk* provides more flexible way as other programming languages.
+***awk*** is a programming language as well as a utility program. *awk* is data-driven language. You have to describe the data you want to work, then do action you want when awk find the data. For that reason, *awk* syntax makes sense. There is a pattern to find a matching line, and also actions what do you want. Until now, it may be similar with *sed*. However, *awk* provides more flexible way to process text lines, input and output.
 
 ## Syntax
 > awk 'pattern {action}' filename
@@ -8,6 +8,8 @@
 
 *pattern* part is similart with 'sed'.
 
+> ### What is programming?
+> 'awk' is more close to real programming than sed or grep. The fundamental process of programming is the calculation box through input to output. If I push a proper input a program would give me a proper output. As I said 'awk' is not only a utility program for text processing, but it has a kind of programming language which defines their own syntax. <...> For that reason, you should keep in mind the logical thinking while writing a 'awk' program.
 
 ## Getting Started
 
@@ -38,8 +40,8 @@ BEGIN {print "hello world!"}
 Above is saved to the file named 'print'. Then, is able to run that script like othe shell script file. Note that 'awk' script includes '-f' option in shebang line.
 
 ```shell
-$ chmod +x print
-$ ./print
+$ chmod +x print.awk
+$ ./print.awk
 hello world!
 ```
 
@@ -136,7 +138,7 @@ bill.drowning@hotmail.com
 martin.codicibus@hotmail.com
 ```
 
-## Define custom seperator
+## Define custom input seperator
 
 ### Field Seperator
 As I have seen by now, each field is seperated by a space. What if I want to deal with comma(,) seperated line like a CSV file?
