@@ -33,10 +33,10 @@ if(condition) {
 
 ```shell
 $ awk 'BEGIN {
-    num=3
-    if(num == 2) print "num is two"
-    else print "num is not two"
-}'
+>    num=3
+>    if(num == 2) print "num is two"
+>    else print "num is not two"
+>}'
 num is not two
 ```
 
@@ -57,11 +57,11 @@ if(condition1) {
 
 ```shell
 $ awk 'BEGIN {
-    num=3
-    if(num == 1) print "num is one"
-    else if(num == 2) print "num is two"
-    else print "num is not one or two"
-}'
+>    num=3
+>    if(num == 1) print "num is one"
+>    else if(num == 2) print "num is two"
+>    else print "num is not one or two"
+>}'
 num is not one or two
 ```
 
@@ -73,12 +73,12 @@ while(continue-condition) statements
 
 ```shell
 $ awk 'BEGIN {
-    i = 0
-    while(i < 5) {
-        print i
-        ++i
-    }
-}'
+>    i = 0
+>    while(i < 5) {
+>        print i
+>        ++i
+>    }
+>}'
 0
 1
 2
@@ -93,12 +93,12 @@ do statements while(continue-condition)
 
 ```shell
 $ awk 'BEGIN {
-    i = 0
-    do {
-        print i
-        ++i
-    }while(i<5)
-}'
+>    i = 0
+>    do {
+>        print i
+>        ++i
+>    }while(i<5)
+>}'
 0
 1
 2
@@ -113,10 +113,10 @@ for (initialize; continue-condition; update) statements
 
 ```shell
 $ awk 'BEGIN {
-    for (i=0; i < 5; ++i) {
-        print i
-    }
-}'
+>    for (i=0; i < 5; ++i) {
+>        print i
+>    }
+>}'
 0
 1
 2
