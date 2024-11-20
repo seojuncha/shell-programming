@@ -41,6 +41,46 @@ I have used the redirection, '>', to insert the command, "echo hello" into the r
 
 
 ## Variables
+Let's talk about ***variables***. What is variables? In programming, the variables is some kinds of a storage that is able to save a data. It might be allocated in computer memory. 
+
+```shell
+# sample/my_var.sh
+
+#!/bin/sh
+my_var=123
+```
+That's the first part of using variables.
+You should have a variable name with an initialization value, '123' in the above example.
+It means that 
+```
++----my_var----+
+|     123      |
++--------------+
+```
+
+<!-- TODO: Formatting rules! -->
+
+At now, how do we know the variable, my_var, has the value, 123, exactly? 
+The best simplest way to prove that is to print out the variable.
+Let me show you this in the command prompt. We can also use a variable in shell.
+```shell
+$ my_var=123
+$ echo my_var
+my_var
+```
+Above commands are not working as our intution. Why?
+The command, 'echo', shows it's arguments by itself as a string literal.
+
+```shell
+$ my_var=123
+$ echo $my_var
+```
+Here is the rule to use a shell variable.
+
+```
+
+```
+
 
 ### Variable Scope
 Let's see what happens when you're running a infinit loop shell script.
