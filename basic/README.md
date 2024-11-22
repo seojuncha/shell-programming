@@ -190,6 +190,9 @@ $ !!
 ```shell
 $ !$
 ```
+---
+By now, we have completed to start talking about shell itself. Let's begin with ***shell*** in a real linux/unix system.
+
 ## Current Shell
 To begin with what is your current shell.
 
@@ -199,7 +202,7 @@ $ echo $SHELL
 ```
 
 ## Shell Profiles
-Let's begin with Shell. When starting a shell session, various configuration files are loaded. That configuration file is called a Shell profile.
+ When starting a shell session, various configuration files are loaded. That configuration file is called a Shell profile.
 
 For example, if the Shell is Bash,
 - /etc/profile
@@ -208,8 +211,17 @@ For example, if the Shell is Bash,
 - ~/.bash_login
 - ~/.profile
 - ~/.bashrc
+- ...
 
 The purpose of Shell profile is to load environment variables and run scripts for the session. Before we step forward, look around the Shell session.
+
+### What's in profiles?
+Actually, '/etc/profile' is not a configuration file but a shell script when running through a shell.
+If you are familiar with a shell script, you could understand what it means easily.
+The shell profiles contains only a few things to configure the shell session. The important thing that is done by a profile is to prepare a shell environment, for instance, ~~.
+
+### The order of loading profiles
+
 
 ## Shell Sessions
 There are two kinds of Shell sessions, ***Login Session*** and ***Non-Login Session***. What's difference between them? Let's talk about *session* first. The terminology, *session*, is commonly appeared in computer programming world. What is *session*?
