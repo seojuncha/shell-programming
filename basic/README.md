@@ -246,7 +246,7 @@ $ echo $0
 bash
 ```
 
-## Psuedo Temrminal Slave devices: PTS
+## Psuedo Terminal Slave devices: PTS
 ```shell
 $ who
 user   pts/0   2024-11-11 12:00 (192.168.0.4)
