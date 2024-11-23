@@ -201,26 +201,8 @@ $ echo $SHELL
 /bin/zsh    # default shell on Mac
 ```
 
-## Shell Profiles
- When starting a shell session, various configuration files are loaded. That configuration file is called a Shell profile.
-
-For example, if the Shell is Bash,
-- /etc/profile
-- /etc/profile.d/*.sh
-- ~/.bash_profile
-- ~/.bash_login
-- ~/.profile
-- ~/.bashrc
-- ...
-
-The purpose of Shell profile is to load environment variables and run scripts for the session. Before we step forward, look around the Shell session.
-
-### What's in profiles?
-Actually, '/etc/profile' is not a configuration file but a shell script when running through a shell.
-If you are familiar with a shell script, you could understand what it means easily.
-The shell profiles contains only a few things to configure the shell session. The important thing that is done by a profile is to prepare a shell environment, for instance, ~~.
-
-### The order of loading profiles
+## Creation of Shells
+There are two kinds of shells on Linux, ***Login Shell*** and ***Non-Login Shell***. Login shell is created when you logged in LInux, so Login shell should be created always if you are using Linux. 
 
 
 ## Shell Sessions
@@ -231,7 +213,7 @@ There are two kinds of Shell sessions, ***Login Session*** and ***Non-Login Sess
 2. *Session* is stateful.
 3. *Session* has time limit and scope.
 
-
+The purpose of Shell profile is to load environment variables via running scripts for the current session. Before we step forward, look around the Shell session.
 
 ### Login Shell Session
 ```shell
@@ -245,6 +227,30 @@ $ bash      # start a new shell session
 $ echo $0
 bash
 ```
+
+### What's in profiles?
+Actually, '/etc/profile' is not a configuration file but a shell script when running through a shell interpreter.
+If you are familiar with a shell script, you could understand what it means easily.
+The shell profiles contains only a few things to configure the shell session. The important thing that is done by a profile is to prepare a shell environment, for instance, ~~.
+
+### The order of loading profiles
+Linux system divided by two systems, system-level and user-level. As almost computer system like, Linux also dedicates to improve efficiency and reduce not required overhead. Moreover Linux is an operating system so that security and consistency are also one of the most imporant features. I think, Linux Shell inherits these 
+philosophy. When login shell session is created, 
+
+## Shell Profiles
+ When starting a shell session, various configuration files are loaded. That configuration file is called a Shell profile.
+
+For example, if the Shell is Bash,
+- /etc/profile
+- /etc/profile.d/*.sh
+- ~/.bash_profile
+- ~/.bash_login
+- ~/.profile
+- ~/.bashrc
+- ...
+
+As you can see, a few profiles are in the /etc directory, but the others are in the home direcotory. Can you expect the reason?
+
 
 ## Psuedo Terminal Slave devices: PTS
 ```shell
