@@ -116,6 +116,71 @@ mail-list contents...
 ```
 As the environment variable, SAMPLE, is written into .bashrc profile, I can use it when I log in shell session again at now. 
 
+## Print fields
+In order for 'awk' to print each column(field), ***print** functinon can be used. The syntax is<br>
+awk '{print *$column_number*}'<br>
+Note that the *column_number* starts from 1 on the most left side. Here's exmples.
+
+```shell
+# Print the first field.
+$ awk '{ print $1 }' $SAMPLE
+Amelia
+Anthony
+Becky
+Bill
+Broderick
+Camilla
+Fabius
+Julie
+Martin
+Samuel
+Jean-Paul
+```
+
+```shell
+$ awk '{ print $2 }' $SAMPLE
+555-5553
+555-3412
+555-7685
+555-1675
+555-0542
+555-2912
+555-1234
+555-6699
+555-6480
+555-3430
+555-2127
+```
+How do we if you want to print fields more than one? There are two ways to do that. The first one is just to list column number with a dollar sign($) sequentially.
+```shell
+$ awk '{ print $1 $2 }' $SAMPLE
+Amelia555-5553
+Anthony555-3412
+Becky555-7685
+Bill555-1675
+Broderick555-0542
+Camilla555-2912
+Fabius555-1234
+Julie555-6699
+Martin555-6480
+Samuel555-3430
+Jean-Paul555-2127
+```
+However, each field is not .... So the second method is to combine column numbers with commas.
+```shell
+$ awk '{print $1,$2 }' $SAMPLAmelia 555-5553
+Anthony 555-3412
+Becky 555-7685
+Bill 555-1675
+Broderick 555-0542
+Camilla 555-2912
+Fabius 555-1234
+Julie 555-6699
+Martin 555-6480
+Samuel 555-3430
+Jean-Paul 555-2127``
+
+
 ## Print Fields with Regular Expression
 I have been used input and output in the previous examples. Keep in mind that 'awk' is following 'pattern-action' structure per one line. Moreover, this rule can be applied multiple times. Let me show you an example.
 ```shell

@@ -8,13 +8,19 @@
 ### script
 ***script*** is enclosed by single-quotes. *script* defines what have to do with a text.<br>
 Synopsis of script is below.<br>
-> [address]*X*[options]
+> [address]command[options]
+
+Here's the various commands.
+- print
+- delete
+- substitute
+- insert
+- append
 
 Take a quick look with a few examples. Note that the sample file is in the *samples* directory.
 ```shell
 $ sed '1,2p' zoo.log 
 ```
-
 
 ***address*** can be
 
