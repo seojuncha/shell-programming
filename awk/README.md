@@ -204,9 +204,17 @@ martin.codicibus@hotmail.com
 ```
 
 ## Define custom input seperator
+Until now, each field is seperated by a whitespace. It means that the default field seperator is set to the whitespace. However, if a sample data has no whitespace between each fields, how do we divide them? In order to do that 'awk' provide a way to customize the field seperator so you can choose which character should be used as a field seperator.
 
 ### Field Seperator
-As I have seen by now, each field is seperated by a space. What if I want to deal with comma(,) seperated line like a CSV file?
+T
+Let's modify the mail-list data. I will change all of whitespaces into commas. I know.. Are you going to edit the mail-list file manually? Delete a whitespace, then put a comma... No. It's not like a programmer. We could use 'sed'.
+
+The first one we have to do is finding a pattern to get all whiteapces. I said, all whitespaces. The number of whitespace between columns is not only one, but more. To describe this as a regex, '/ +/'.
+
+```shell
+$ sed -E 's/ +/,/g/' $SAMPLE
+```
 
 ```shell
 $ awk -F@ '/gmail/ {print $1}' $SAMPLE
@@ -265,6 +273,25 @@ start beginfile..
 Apr  31  52  63 420
 Oct  29  54  68 525
 Feb  26  58  80 652
+```
+
+## Using an awk script file
+
+awk -f *filename*
+
+```shell
+$ awk -f print.awk
+```
+Note that, an open curly bracket for **BEGIN** block should be same line on **BEGIN** in a awk script.
+For instance, 
+```awk
+BEGIN
+{ print "It's illegal"}
+```
+```awk
+BEGIN {
+  print "It's legal"
+}
 ```
 
 ### Dynamic Regular Expression
