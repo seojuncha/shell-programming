@@ -190,6 +190,20 @@ $ !!
 ```shell
 $ !$
 ```
+
+Use a logical operator between commands.
+
+```shell
+$ ls; echo "done"
+
+$ ls && echo "done"
+
+$ ls || echo "done"
+
+$ lb && echo "done"
+
+$ lb || echo "done"
+```
 ---
 By now, we have completed to start talking about shell itself. Let's begin with ***shell*** in a real linux/unix system.
 

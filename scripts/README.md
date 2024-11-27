@@ -152,7 +152,7 @@ ___arithmetic operators___
 
 ### (Advanced) Standard Input, Standard Output, Standard Error
 
-## Control
+## Control (Important!)
 Shell scripting supports control statements also like other programming languages. Control statement means that you could control which commands should be executed upon your condition, true or false. The important thing is to use control statements 
 
 __if-then statements format__
@@ -211,8 +211,12 @@ fi
 ```
 
 ### (Optional) test vs []
-
 __condition/test.sh__ and __condition/if.sh__
+
+
+### Use a logical operator within test
+
+### Various type of expressions
 
 
 ## Taking an argument as an variable
@@ -223,7 +227,7 @@ By now, we assign and use a variable in the shell script file. The problem is,
 
 To do that, Shell provides the method to take an user input by the command prompt.
 
-__argv.sh__
+__io/argv.sh__
 ```shell
 echo "The command name: $0"
 echo "The first argument: $1"
@@ -276,11 +280,54 @@ Run 'whoami': yourname
 0
 ```
 
+__case statements format__
+
+```
+case {variable} in
+    {pattern-1})
+        {statements-1}
+        ;;
+    {pattern-2})
+        {statements-2}
+        ;;
+    *)
+        {statements-3}
+        ;;
+esac
+```
+
+First, try to find {pattern-1} in {variable}. If there is a matched pattern in the variable, 
 
 
 ## Loop
 
+__for loop format__
+```
+for {var} in {array}; do
+    {statements}
+done
+```
+Note that, _var_ is a variable which is alive out of the for loop also.
+
+
+
 ## Function
+Definition and usage
+
+```
+funcion_name()
+{
+    {statements}
+}
+```
+
+## Exit
+
+
+
+## (Advanced) Source (.)
+
+
 
 ## (Optional) sh vs dash vs bash
 
