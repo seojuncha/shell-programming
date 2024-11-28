@@ -298,18 +298,115 @@ esac
 
 First, try to find {pattern-1} in {variable}. If there is a matched pattern in the variable, 
 
+| pattern | descrription | example |
+| -- | -- | --|
+| * | |
+| ? | |
+| [] | |
+
 
 ## Loop
 
-__for loop format__
-```
-for {var} in {array}; do
-    {statements}
+### Using for loop
+
+__for-basic.sh__
+```shell
+#!/bin/sh
+for i in 1 2 3; do
+  echo $i
 done
 ```
-Note that, _var_ is a variable which is alive out of the for loop also.
+
+**for** _variable_ **in** _value1_ _value2_ ... _valueN_**;** **do**<br>
+: _variable_ will be assigned by from _value1_ to _valueN_ sequentially. For instance, in the first loop, _variable_ has _value1_, then in the second loop, _variable_ has _value2_, and so on.
+Note that the defualt variable scope is global so _variable_ assigned in the for loop could be used out of the loop block.
+
+**done** <br>
+: Indicate the end of the for loop
+
+Uset the for loop with the shell command, ls to list files in the current directory.
+```shell
+#!/bin/sh
+for file in $(ls); do
+  echo "--- $file"
+done
+```
+The result of __$(ls)__ is all of the name of files. For instance, file1.txt, file2.txt. so this sentence, ___for file in $(ls)___ is same with ___for file in file1.txt file2.txt___. As the result, the variable, file, has file1.txt then file2.txt.
 
 
+### Using while loop
+```shell
+#!/bin/sh
+num=1
+while [ $num -le 10 ]; do
+  echo $num
+  num=$(($num + 1))
+done
+```
+**while** *condition*;  **do**
+: The *condition* is same expression used in if-then statements.
+**done**
+
+
+> [!TIP]
+> In order to indicate the start and the end of the loop, ___do-done___ is used. Don't be confused with if-then-fi.
+
+### break
+```shell
+#!/bin/sh
+num=1
+while [ $num -le 10 ]; do
+  echo $num
+  num=$(($num + 1))
+
+  [ $num -eq 5 ] && break
+done
+```
+
+### continue
+```shell
+#!/bin/sh
+num=1                           # assign 1 to the variable, num.
+while [ $num -le 10 ]; do       # Check the variable, num, is less than or equal to 10.
+  num=$(($num + 1))             # Increate the num by 1.
+  if [ $num -le 5 ]; then       # If the variable, num is less than or equal to 5, 
+    continue                    # back to the condition statements of while loop.
+  fi
+  echo $num                     # Print the variable, num.
+done                            # End of the loop block
+```
+
+| loop count | num before while | while condition | num before if | if condition | echo? |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| 1 | 1 | true | 2 | true | no |
+| 2 | 2 | true | 3 | true | no |
+| 3 | 3 | true | 4 | true | no |
+| 4 | 4 | true | 5 | true | no |
+| 5 | 5 | true | 6 | false | yes |
+| 6 | 6 | true | 7 | false | yes |
+| 7 | 7 | true | 8 | false | yes |
+| 9 | 9 | true | 10 | false | yes |
+| 10 | 10 | true | 11 | false | yes |
+| 11 | 11 | false | - | - | - |
+
+
+### Infinite Loop
+```shell
+#!/bin/sh
+while :; do
+  echo "Press [Ctrl-C] to exit"
+done
+```
+
+
+```shell
+#!/bin/bash
+for (( ; ; )); do
+  echo "Press [Ctrl-C] to exit"
+done
+```
+
+Note that the infinite loop using _for_ can be run only by __bash__ shell. So I recommend using the while-style infinite loop for compatibility.
 
 ## Function
 Definition and usage
@@ -331,7 +428,7 @@ funcion_name()
 
 ## (Optional) sh vs dash vs bash
 
-## (Appendix) Test Operators Summary
+## (Appendix) Test Command Operators Summary
 
 __string compare__
 > condition/compare_string.sh
@@ -362,6 +459,7 @@ __file or directory existence__
 |--------|-------------|----------------|
 | -e _FILE_ | _FILE_ exists? | **e**xists |
 | -d _FILE_ | _FILE_ exists? and directory? | **d**irectory exists |
+| -r _FILE_ | _FILE_ exists? and regular file? | **r**egular file |
 | -s _FILE_ | _FILE_ exists? and size > 0? | has **s**ize |
 
 __file or directory permission__
