@@ -425,7 +425,6 @@ funcion_name()
 ## (Advanced) Source (.)
 
 
-
 ## (Optional) sh vs dash vs bash
 
 ## (Appendix) Test Command Operators Summary
@@ -435,10 +434,10 @@ __string compare__
 
 | format | description |
 |--------|-------------|
-| -n _STRING_ |  |
-| -z _STRING_ |  |
-| _STRING1_ == _STRING2_ |  |
-| _STRING1_ != _STRING2_ |  |
+| -n _STRING_ | length is non-zero |
+| -z _STRING_ | length is zero |
+| _STRING1_ == _STRING2_ | same string |
+| _STRING1_ != _STRING2_ | not same string |
 
 __number(integer) compare__
 > condition/compare_number.sh
