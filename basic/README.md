@@ -1,17 +1,6 @@
-# Linux & Unix Shell
+# Linux Shell
 
-## What is Shell?
-We have been heard 'Shell' a lot in the IT field, specifically linux or unix system. However, what is the Shell exactly meaning about? 
-
-### Interface Hirarchy
-There are a lot of interfaces in a computer system. To put the text in here, I use my keyboard. When I push a single keycap again and again, a signal is sent to the computer. Then, the computer prints the text I typed.  
-
-Shell is one of the interfaces in computer system.
-
-As you know, there is an operating system in a modern computer system.
-
-
-## Common Usage of Commands
+## Basic Linux Commands
 Quick tour of basic commands before next step. Most commands are used frequently.<br>
 <!-- TODO: add exercises for each command! -->
 
@@ -144,8 +133,15 @@ b
 - [sed](../sed/README.md)
 - [awk](../awk/README.md)
 
-### Input/Ouput & Redirection & Pipeline
-1. Input/Output<br>
+### Redirection
+| stdin | stdout | stderr |
+| :-: | :-: | :-: |
+| 0 | 1 | 2 |
+| standard input | standard output | standard error |
+| keyboard input | terminal screen | terminal screen |
+
+
+1. Output Redirection<br>
 
 ```shell
 # Put the result of the left side command to a file, right side.
@@ -158,23 +154,30 @@ $ echo "bye world" >> hello-world.txt
 $ cat hello-world.txt
 hello world
 bye world
+```
 
+2. Input Redirection
+```shell
 # Right side source is used as an input for a left side command
 $ wc -l < hello-world.txt
 1
 ```
-2. Redirection<br>
-Redireciton change an input or an output to the other. Note that below things.
-- standard input (0)
-- standard output (1)
-- standard error (2)
+
+
+#### Standard Error
+
+
 ```shell
 $ ls /none 2> error.log  # An error message is redirected to error.log. 
 $ cat error.log
 ls: cannot access '/none': No such file or directory
 ```
-3. Pipeline<br>
+
+### Who/How select which stream is used?
+
+### Pipeline
 If pipeline, '|', is used, the output of command1, left side, is taken as the input of command2, right side.
+
 ```shell
 $ command1 | command2
 $ ls /home | grep `whoami`
@@ -205,7 +208,23 @@ $ lb && echo "done"
 $ lb || echo "done"
 ```
 ---
-By now, we have completed to start talking about shell itself. Let's begin with ***shell*** in a real linux/unix system.
+By now, we have completed to start talking about shell itself. Let's begin with ***shell*** in a real linux system.
+
+## What is Shell?
+We have been heard 'Shell' a lot in the IT field, specifically linux or unix system. However, what is the Shell exactly meaning about? 
+
+### Interface Hirarchy
+There are a lot of interfaces in a computer system. To put the text in here, I use my keyboard. When I push a single keycap again and again, a signal is sent to the computer. Then, the computer prints the text I typed.  
+
+Shell is one of the interfaces in computer system.
+
+As you know, there is an operating system in a modern computer system.
+
+```
+User -> Terminal -> Shell -> Operating System -> Hardware
+     <-          <-       <-                  <-
+```
+
 
 ## Current Shell
 To begin with what is your current shell.
