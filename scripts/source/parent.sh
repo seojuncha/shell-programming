@@ -1,4 +1,5 @@
-. ./child.sh
-#./child.sh
+. child.sh
 
-echo "child var: $CHILD_VAR"
+child_func
+echo "In parent, $CHILD_VAR"
+

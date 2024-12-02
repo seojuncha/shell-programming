@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 while :; do
-  echo "Press [Ctrl-C] to exit"
+  echo "Press [Ctrl-C]"
 done
+
