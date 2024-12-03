@@ -1,0 +1,4 @@
+foo
+hello foo
+pattern matched here
+old and old
