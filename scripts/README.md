@@ -148,8 +148,6 @@ ___arithmetic operators___
 +, -, *, /, %
 ```
 
-
-
 ### (Advanced) Standard Input, Standard Output, Standard Error
 
 ## Control (Important!)
@@ -214,7 +212,51 @@ fi
 __condition/test.sh__ and __condition/if.sh__
 
 
-### Use a logical operator within test
+### Use logical operators
+How to use logical operators, like AND or OR in Shell programming?
+Firstly, let's combine commands with a logical operator.
+
+__&&__
+
+If the **$$** operator is used between two commands, the second command would be executed only if the first command is done successfully, which means the return, exit value should be zero.
+
+```shell
+$ ehco "print file list" && ls
+print file list
+# ls
+```
+The other operator, **||** provides the opposite way of && operator. 
+The condition to execute the second command is that the first command should be failed. 
+It means that the most common case of using _||_ operator is the error check.
+
+```shell
+$ ee "print file list" || ls
+# show ls
+```
+
+You can also use logical operators in the _test_ command with _if_ statement. 
+
+| AND | OR |
+| -- | -- |
+| -a | -o |
+
+That's a very intuitive character. Isn't it? Let me show you a simple example to present how to use.
+
+```shell
+$ num1=10
+$ num2=9
+$ test $num1 -gt $num2 -a $num1 -eq 10
+$ echo $?
+0
+$ test $num1 -gt $num2 -a $num1 -eq 9
+$ echo $?
+1
+```
+
+### Other ways to compare numbers and strings
+
+> sample files: comp-str.sh, comp-num.sh
+
 
 ### Various type of expressions
 
@@ -298,11 +340,13 @@ esac
 
 First, try to find {pattern-1} in {variable}. If there is a matched pattern in the variable, 
 
+__GLOB Pattern__
 | pattern | descrription | example |
 | -- | -- | --|
 | * | |
 | ? | |
 | [] | |
+| {} | |
 
 
 ## Loop
@@ -436,7 +480,7 @@ __string compare__
 |--------|-------------|
 | -n _STRING_ | length is non-zero |
 | -z _STRING_ | length is zero |
-| _STRING1_ == _STRING2_ | same string |
+| _STRING1_ = _STRING2_ | same string |
 | _STRING1_ != _STRING2_ | not same string |
 
 __number(integer) compare__
