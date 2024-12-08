@@ -105,9 +105,15 @@ In the previous example, we used a command, echo. We also call any other command
 __commands.sh__
 ```shell
 #!/bin/sh
-
 list_file=`ls`
 echo $list_file
+```
+
+The other way to save the result of a command,
+```shell
+#!/bin/sh
+list_file=$(ls)
+echo $list_files
 ```
 
 
@@ -341,7 +347,7 @@ esac
 First, try to find {pattern-1} in {variable}. If there is a matched pattern in the variable, 
 
 __GLOB Pattern__
-| pattern | descrription | example |
+| pattern | description | example |
 | -- | -- | --|
 | * | |
 | ? | |
@@ -463,18 +469,52 @@ funcion_name()
 ```
 
 ## Exit
+___Exit___ command is to terminate the running script itself. 
+You can write the _exit_ command as zero at the end of the script if that script was doing all well or else you should use the _exit_ command with non-zero value.
 
-
+```shell
+#!/bin/bash
+check_home_dir() {
+  # If there is no HOME directory, which means 'test' command has returned false(non-zero value), exit the script with 1.
+  test -d $HOME || exit 1
+}
+my_func $1
+exit 0
+```
 
 ## (Advanced) Source (.)
+___Dot(.)___ command is for loading a script into the current script. 
 
+```shell
+#!/bin/bash
+cd ~
+cd ..
+pwd
+```
 
-## (Optional) sh vs dash vs bash
+Let's compare betwen two execution ways.
+```shell
+# Run the script only
+$ ./dot-test.sh
+# Use dot command
+$ . dot-test.sh
+```
+The terminal output will be same with two cases, your home directory path.
+However, your current directory wouldn't be same. Because if you run a script, a subshell is created.
+Which means that if you run a script as an ordinary way like the first case, the current directory is moved to '/home' and also print '/home' in the subshell. So that after the termination of the subshell, the original shell that runs dot-test.sh is remaining on the current directory where the script was run.
+
+The command case of usage for this sourcing mechanism is to use variables and functions in other scripts, like a library.
+
+```shell
+```
+
+## (Advanced) Commands within two blocks, () and {}
+```shell
+```
 
 ## (Appendix) Test Command Operators Summary
 
 __string compare__
-> condition/compare_string.sh
 
 | format | description |
 |--------|-------------|
@@ -484,7 +524,6 @@ __string compare__
 | _STRING1_ != _STRING2_ | not same string |
 
 __number(integer) compare__
-> condition/compare_number.sh
 
 | format | symbolic | note |
 |--------|-------------|----------------|
@@ -496,7 +535,6 @@ __number(integer) compare__
 | _NUMBER1_ -le _NUMBER2_ | _NUMBER1_ <= _NUMBER2_ | **l**ess than & **e**qual to|
 
 __file or directory existence__
-> condition/existence_file.sh
 
 | format | description | note |
 |--------|-------------|----------------|
@@ -506,7 +544,6 @@ __file or directory existence__
 | -s _FILE_ | _FILE_ exists? and size > 0? | has **s**ize |
 
 __file or directory permission__
-> condition/permission_file.sh
 
 | format | description |
 |--------|-------------|
@@ -515,7 +552,6 @@ __file or directory permission__
 | -x _FILE_ | _FILE_ exists? and executable? |
 
 __file or directory compare__
-> condition/compare_file.sh
 
 | format | description |
 |--------|-------------|
