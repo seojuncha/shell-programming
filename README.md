@@ -1,53 +1,46 @@
-# Shell Programming
-| can | can't |
-| - | - |
-|||
+# Shell Programming Course
 
 I have roughly listed common jobs for software job positions. It may not fit to all company. However, I defined below through personal experience.
 
-### For Programmers
+# Who needs this course?
+
+## Programmers
 Common Job
 - Write a code
 - Build and Test
 - Fix bugs
 
-### For System Engineers
+## System Administrators
 Common Job
 - System Monitor
 - Manage Infrascructure
 - Install System Packages
 - Install ouput from Dev
 
-### For Quality Assurance
+## Quality Assurance
 Common Job
 - Define a test scenario and Write a test case
 - Report bugs with/without logs.
 
-### For Performance Tester
+## For Performance Tester
 Common Job
 - Understand a system architecture
 - Define a test scenario
 - Do performance testing
 
-## Our Goal
-1. Read and Understand a existing shell script
+
+## Lecture Videos
 
 
 ## Index
-Linux & Shell Basics
+Linux & Shell Basic
 
-- [basic](basic/README.md)
+- [shell-basic](shell-basic/README.md)
 
-Text Processing
-- [grep](grep/README.md)
-- [sed](sed/README.md)
-- [awk](awk/README.md)
+Text Data Processing
+- [grep](text-processing/grep/README.md)
+- [sed](text-processing/sed/README.md)
+- [awk](text-processing/awk/README.md)
 
-Shell Programming
-- [scripts](scripts/README.md)
-
-
-## (Appendix) Generate a test log file
-```shell
-$ ./create_test_log.sh
-```
+Shell Script 
+- [shell-script](shell-script/README.md)

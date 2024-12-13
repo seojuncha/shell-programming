@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create a log file with various patterns
-cat << 'EOF' > samples/test.log
+cat << 'EOF' > test.log
 [2024-01-01 00:01:23] INFO: System startup initiated
 [2024-01-01 00:01:24] DEBUG: Loading configuration from /etc/app/config.yaml
 [2024-01-01 00:01:25] WARNING: Deprecated setting 'old_parameter' detected
